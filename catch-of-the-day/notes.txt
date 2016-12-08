@@ -1,0 +1,1 @@
+React has a concept of Context that allows any component to access a global scope (or 'surface' a component).
