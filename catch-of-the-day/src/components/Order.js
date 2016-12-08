@@ -11,8 +11,9 @@ export default class Order extends React.Component {
     const count = this.props.order[key]
 
     const fishName = () => {
-      return fish &&
-        fish.name.charAt(fish.name.length - 1) === 's' ? 'are' : 'is'
+      return fish && fish.name.charAt(fish.name.length - 1) === 's' ?
+        'are'
+        : 'is'
     }
 
     const removeButton = <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
