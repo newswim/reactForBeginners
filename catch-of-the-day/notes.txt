@@ -1,1 +1,6 @@
-React has a concept of Context that allows any component to access a global scope (or 'surface' a component).
+React has a concept of Context that allows any component to access a global
+scope (or 'surface' a component).
+
+
+20/30 - Attaching onClick handlers to input fields, updating app state
+21/30 - Removing items from state

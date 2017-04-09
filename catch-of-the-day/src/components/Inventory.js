@@ -10,16 +10,14 @@ export default class Inventory extends React.Component {
 
   handleChange (e, key) {
     const fish = this.props.fishes[key]
-
     // take a copy of the fish and update it with the new value
-
     const updatedFish = {
       ...fish,
+      // computed property
       [e.target.name]: e.target.value
     }
 
     this.props.updateFish(key, updatedFish)
-
   }
 
   renderInventory (key) {
@@ -28,13 +26,14 @@ export default class Inventory extends React.Component {
       <div className="fish-edit" key={key}>
         <input type="text" name="name" value={fish.name} placeholder="Fish Name" onChange={(e) => this.handleChange(e, key)}/>
         <input type="text" name="price" value={fish.price} placeholder="Fish Price" onChange={(e) => this.handleChange(e, key)}/>
-        <select type="text" name="status" value={fish.status} placeholder="Fish Status"onChange={(e) => this.handleChange(e, key)}>
+        <select type="text" name="status" value={fish.status} placeholder="Fish Status" onChange={(e) => this.handleChange(e, key)}>
           <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
-        <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc"onChange={(e) => this.handleChange(e, key)}></textarea>
+        <textarea type="text" name="desc" value={fish.desc} placeholder="Fish Desc" onChange={(e) => this.handleChange(e, key)}></textarea>
         <input type="text" name="image" value={fish.image} placeholder="Fish Image" onChange={(e) => this.handleChange(e, key)}/>
         <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
+        <button onClick={() => this.props.removeFromOrder(key)}>Remove From Order</button>
       </div>
     )
   }

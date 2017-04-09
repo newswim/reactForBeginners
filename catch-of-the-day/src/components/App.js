@@ -16,12 +16,12 @@ class App extends React.Component {
     }
 
     // binding methods
-    this.addFish = this.addFish.bind(this)
-    this.updateFish = this.updateFish.bind(this)
-    this.removeFish = this.removeFish.bind(this)
     this.loadSamples = this.loadSamples.bind(this)
-    this.addToOrder = this.addToOrder.bind(this)
     this.removeFromOrder = this.removeFromOrder.bind(this)
+    this.addToOrder = this.addToOrder.bind(this)
+    this.removeFish = this.removeFish.bind(this)
+    this.updateFish = this.updateFish.bind(this)
+    this.addFish = this.addFish.bind(this)
   }
 
   componentWillMount () {
@@ -67,8 +67,12 @@ class App extends React.Component {
   }
 
   removeFish (key) {
+    // make a copy
     const fishes = {...this.state.fishes}
+    // set the entry to null
+    // note: using `delete` won't work (with firebase)
     fishes[key] = null
+    // update state
     this.setState({ fishes })
   }
 
@@ -120,6 +124,7 @@ class App extends React.Component {
           addFish={this.addFish}
           removeFish={this.removeFish}
           updateFish={this.updateFish}
+          removeFromOrder={this.removeFromOrder}
           loadSamples={this.loadSamples}
           fishes={this.state.fishes} />
       </div>
